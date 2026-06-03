@@ -4,7 +4,7 @@ Personal portfolio website for Om Bute, built as a static HTML, CSS, and JavaScr
 
 ## Live Website
 
-Vercel deployment pending re-authentication.
+https://omyaaa1.github.io/portfolio/
 
 ## Files
 
