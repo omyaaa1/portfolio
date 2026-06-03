@@ -1,3 +1,5 @@
 .vercel
+.vscode
+memory
 .DS_Store
 Thumbs.db
