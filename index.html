@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Om Bute | Frontend Developer, Video Editor &amp; IoT Enthusiast</title>
+  <meta name="description" content="Portfolio of Om Bute, a B.Tech IoT Student, Frontend Developer, Video Editor, and Content Creator based in Nagpur, India.">
+  
+  <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div id="cursor-ring" class="cursor-ring"></div>
+  <div id="cursor-dot" class="cursor-dot"></div>
+
+  <!-- Top Info Bar -->
+  <div id="top-info-bar" class="top-info-bar">
+    <div class="top-info-bar-inner">
+      <div class="top-info-left">
+        <span class="top-info-tag">Available for Collabs</span>
+      </div>
+      <div class="top-info-links">
+        <a href="https://github.com/omyaaa1" target="_blank" class="top-info-link">
+          <i class="fa-brands fa-github"></i>
+          <span>omyaaa1</span>
+        </a>
+        <a href="mailto:butemahendra74@gmail.com" class="top-info-link">
+          <i class="fa-regular fa-envelope"></i>
+          <span>butemahendra74@gmail.com</span>
+        </a>
+        <span class="top-info-link top-info-loc">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Nagpur, India</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background Aurora Canvas -->
+  <div id="aurora-container">
+    <canvas id="aurora-canvas"></canvas>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header id="main-nav" class="nav-container fade-in">
+    <div class="nav-content">
+      <a href="#" class="logo">
+        <span class="logo-accent">&lt;</span>Om<span class="logo-accent">.</span>Bute<span class="logo-accent">&gt;</span>
+      </a>
+      
+      <nav class="nav-links">
+        <a href="#home" class="nav-link active" data-section="home">Home</a>
+        <a href="#about" class="nav-link" data-section="about">About</a>
+        <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+        <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+        <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Integrated Preset Accent Color Picker -->
+        <div class="nav-color-presets" title="Change Theme Accent">
+          <button class="nav-color-dot active" data-color="blue" style="background: #00f0ff;" aria-label="Blue Accent"></button>
+          <button class="nav-color-dot" data-color="green" style="background: #00f5a0;" aria-label="Green Accent"></button>
+          <button class="nav-color-dot" data-color="purple" style="background: #d946ef;" aria-label="Purple Accent"></button>
+          <button class="nav-color-dot" data-color="orange" style="background: #ff7e5f;" aria-label="Orange Accent"></button>
+        </div>
+        <a href="#contact" class="btn btn-sm btn-outline">Let's Talk</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Menu Toggle -->
+  <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Mobile Navigation Overlay -->
+  <div id="mobile-menu" class="mobile-menu-overlay">
+    <nav class="mobile-nav-links">
+      <a href="#home" class="mobile-nav-link">Home</a>
+      <a href="#about" class="mobile-nav-link">About</a>
+      <a href="#projects" class="mobile-nav-link">Projects</a>
+      <a href="#experience" class="mobile-nav-link">Experience</a>
+      <a href="#contact" class="mobile-nav-link">Contact</a>
+      
+      <!-- Mobile Color Presets inside overlay -->
+      <div class="mobile-color-presets" style="margin-top: 20px; display: flex; gap: 15px; justify-content: center;">
+        <button class="nav-color-dot active" data-color="blue" style="background: #00f0ff; width: 24px; height: 24px; border-radius: 50%; border: none; cursor: pointer;"></button>
+        <button class="nav-color-dot" data-color="green" style="background: #00f5a0; width: 24px; height: 24px; border-radius: 50%; border: none; cursor: pointer;"></button>
+        <button class="nav-color-dot" data-color="purple" style="background: #d946ef; width: 24px; height: 24px; border-radius: 50%; border: none; cursor: pointer;"></button>
+        <button class="nav-color-dot" data-color="orange" style="background: #ff7e5f; width: 24px; height: 24px; border-radius: 50%; border: none; cursor: pointer;"></button>
+      </div>
+      
+      <a href="#contact" class="btn btn-outline" style="margin-top: 20px;">Let's Talk</a>
+    </nav>
+  </div>
+
+  <!-- Main Content Wrapper -->
+  <main class="content">
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section section">
+      <div class="hero-text-container fade-in">
+        <div class="hero-tags">
+          <span class="hero-tag"><i class="fa-solid fa-brain"></i> AI &amp; Machine Learning</span>
+          <span class="hero-tag"><i class="fa-solid fa-microchip"></i> IoT Engineering</span>
+          <span class="hero-tag"><i class="fa-brands fa-github"></i> Open Source</span>
+        </div>
+        <h1 class="hero-title">
+          Hi, I&rsquo;m <span class="gradient-text accent-glow-text">Om Bute</span>
+        </h1>
+        <h2 class="hero-subtitle">
+          I build <span id="typewriter-text" class="typewriter-target"></span><span class="typewriter-cursor">|</span>
+        </h2>
+        <p class="hero-description">
+          B.Tech IoT student from Nagpur, deeply fascinated by how artificial intelligence intersects with the physical world. I experiment with LLMs, build automation tools, wire up hardware prototypes, and occasionally make videos about all of it.
+        </p>
+        <p class="hero-description hero-quote">
+          <i class="fa-solid fa-quote-left" style="font-size: 10px; opacity: 0.5; margin-right: 5px;"></i>
+          Understanding failures before optimizing success.
+          <i class="fa-solid fa-quote-right" style="font-size: 10px; opacity: 0.5; margin-left: 5px;"></i>
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary glow-btn">
+            <span>View My Work</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="https://github.com/omyaaa1" target="_blank" class="btn btn-outline">
+            <i class="fa-brands fa-github"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual fade-in">
+        <div class="visual-wrapper">
+          <div class="glowing-orb"></div>
+          <div class="floating-card c1">
+            <i class="fa-solid fa-code text-accent"></i>
+            <div>
+              <span>Coding</span>
+              <small>JS, Python, C/C++</small>
+            </div>
+          </div>
+          <div class="floating-card c2">
+            <i class="fa-solid fa-microchip text-accent"></i>
+            <div>
+              <span>IoT Hardware</span>
+              <small>Arduino, Raspberry Pi</small>
+            </div>
+          </div>
+          <div class="floating-card c3">
+            <i class="fa-solid fa-clapperboard text-accent"></i>
+            <div>
+              <span>Video Editing</span>
+              <small>Premiere &amp; After Effects</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-down-indicator">
+        <a href="#about" aria-label="Scroll to About section">
+          <span>Scroll Down</span>
+          <div class="mouse-icon">
+            <div class="wheel"></div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- About Section -->
+    <section id="about" class="about-section section scroll-reveal">
+      <div class="section-header">
+        <span class="section-subtitle">01. Profile</span>
+        <h2 class="section-title">About Me &amp; Skills</h2>
+      </div>
+      
+      <div class="about-grid">
+        <div class="about-bio-card glass-card">
+          <div class="glass-card-glow"></div>
+          <h3>The Story</h3>
+          <p>
+            I'm a first-year B.Tech IoT student at SVPCET Nagpur, and AI is the thing I can't stop thinking about. Not just using it — understanding it. I want to know why a model hallucinates, how an LLM chooses its next token, and what happens when you plug machine learning into a physical circuit.
+          </p>
+          <p>
+            By day I'm learning systems programming, databases, and embedded hardware. By night I'm building AI-powered tools, experimenting with prompt engineering, training small models, and shipping projects that cross the boundary between software and the real world. I also edit videos because creativity matters just as much as computation.
+          </p>
+          
+          <blockquote style="border-left: 3px solid var(--accent); padding-left: 15px; margin: 20px 0; font-style: italic; color: var(--text-secondary); background: rgba(255,255,255,0.01); padding: 12px 16px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;">
+            "An idiot admires complexity, a genius admires simplicity.. i am a idiot."
+            <cite style="display: block; margin-top: 5px; font-size: 12px; color: var(--text-muted); font-weight: 600;">— Terry A. Davis</cite>
+          </blockquote>
+
+          <div class="bio-stats">
+            <div class="stat-item">
+              <span class="stat-number accent-glow-text">25</span>
+              <span class="stat-label">Public Repositories</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number accent-glow-text">88+</span>
+              <span class="stat-label">Contributions Last Year</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-skills-card glass-card">
+          <div class="glass-card-glow"></div>
+          <h3>Technical &amp; Creative Skills</h3>
+          
+          <div class="skills-wrapper">
+            <div class="skills-category">
+              <h4>Languages &amp; Web Core</h4>
+              <div class="skills-tags">
+                <span class="skill-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+                <span class="skill-tag"><i class="fa-brands fa-html5"></i> HTML5 / CSS3</span>
+                <span class="skill-tag"><i class="fa-brands fa-python"></i> Python</span>
+                <span class="skill-tag"><i class="fa-solid fa-terminal"></i> C / C++</span>
+                <span class="skill-tag"><i class="fa-solid fa-code"></i> C# / PHP</span>
+                <span class="skill-tag"><i class="fa-solid fa-database"></i> SQL / MySQL</span>
+              </div>
+            </div>
+
+            <div class="skills-category">
+              <h4>IoT &amp; Engineering Tools</h4>
+              <div class="skills-tags">
+                <span class="skill-tag"><i class="fa-solid fa-microchip"></i> Arduino</span>
+                <span class="skill-tag"><i class="fa-brands fa-raspberry-pi"></i> Raspberry Pi</span>
+                <span class="skill-tag"><i class="fa-solid fa-network-wired"></i> Tinkercad Circuits</span>
+                <span class="skill-tag"><i class="fa-brands fa-git-alt"></i> Git / GitHub</span>
+                <span class="skill-tag"><i class="fa-solid fa-terminal"></i> PowerShell / Bash</span>
+              </div>
+            </div>
+
+            <div class="skills-category">
+              <h4>Creative &amp; Media Editing</h4>
+              <div class="skills-tags">
+                <span class="skill-tag"><i class="fa-solid fa-video"></i> Premiere Pro</span>
+                <span class="skill-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> After Effects</span>
+                <span class="skill-tag"><i class="fa-solid fa-crop"></i> CapCut / Alight Motion</span>
+                <span class="skill-tag"><i class="fa-solid fa-image"></i> Photoshop / Canva</span>
+              </div>
+            </div>
+            
+            <div class="skills-category">
+              <h4>Proficiency Vectors</h4>
+              <div class="skill-progress-bar">
+                <div class="skill-info">
+                  <span>Video Editing &amp; Content Strategy</span>
+                  <span>90%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 90%;"></div>
+                </div>
+              </div>
+              <div class="skill-progress-bar">
+                <div class="skill-info">
+                  <span>Frontend Development</span>
+                  <span>80%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 80%;"></div>
+                </div>
+              </div>
+              <div class="skill-progress-bar">
+                <div class="skill-info">
+                  <span>IoT Circuits &amp; Prototyping</span>
+                  <span>75%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 75%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section section scroll-reveal">
+      <div class="section-header">
+        <span class="section-subtitle">02. Works</span>
+        <h2 class="section-title">Featured Projects</h2>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: Omos Web OS -->
+        <article class="project-card glass-card">
+          <div class="glass-card-glow"></div>
+          <div class="project-preview">
+            <div class="project-overlay-glow"></div>
+            <div class="project-mockup os-mock">
+              <svg width="100%" height="100%" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" class="svg-graphic">
+                <defs>
+                  <linearGradient id="os-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.8"/>
+                    <stop offset="100%" stop-color="rgba(3, 0, 30, 0)"/>
+                  </linearGradient>
+                </defs>
+                <!-- Desktop outline -->
+                <rect x="80" y="30" width="240" height="140" rx="8" fill="none" stroke="var(--accent)" stroke-width="2" />
+                <line x1="80" y1="150" x2="320" y2="150" stroke="var(--accent)" stroke-width="1.5" />
+                <!-- dock widgets inside -->
+                <rect x="130" y="153" width="12" height="12" rx="2" fill="#fff" opacity="0.8" />
+                <rect x="150" y="153" width="12" height="12" rx="2" fill="var(--accent)" />
+                <rect x="170" y="153" width="12" height="12" rx="2" fill="#fff" opacity="0.8" />
+                <!-- windows inside -->
+                <rect x="100" y="50" width="100" height="70" rx="4" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" />
+                <line x1="100" y1="62" x2="200" y2="62" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" />
+                <circle cx="106" cy="56" r="2" fill="#ef4444" />
+                <circle cx="112" cy="56" r="2" fill="#f59e0b" />
+                <circle cx="118" cy="56" r="2" fill="#10b981" />
+                
+                <rect x="180" y="70" width="110" height="65" rx="4" fill="none" stroke="var(--accent)" stroke-width="1.5" />
+                <line x1="180" y1="82" x2="290" y2="82" stroke="var(--accent)" stroke-width="1.5" />
+                <circle cx="186" cy="76" r="2" fill="var(--accent)" />
+              </svg>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-type">Fullstack Web App</span>
+              <div class="project-links">
+                <a href="https://github.com/omyaaa1/omos" target="_blank" class="project-link" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                <a href="https://omyaaa1.github.io/omos/" target="_blank" class="project-link" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              </div>
+            </div>
+            <h3 class="project-title">Omos Web OS</h3>
+            <p class="project-description">
+              A comprehensive web operating system simulation. Features a multi-window management desktop, simulated files app, terminal console, text editors, installer scripts, and system panel controls.
+            </p>
+            <div class="project-tech">
+              <span>Vanilla JS</span>
+              <span>FastAPI</span>
+              <span>WebSockets</span>
+              <span>SQLite</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: ASCII Cam -->
+        <article class="project-card glass-card">
+          <div class="glass-card-glow"></div>
+          <div class="project-preview">
+            <div class="project-overlay-glow"></div>
+            <div class="project-mockup ascii-mock">
+              <svg width="100%" height="100%" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" class="svg-graphic">
+                <rect x="110" y="30" width="180" height="120" rx="8" fill="none" stroke="var(--accent)" stroke-width="2" />
+                <circle cx="200" cy="90" r="30" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" />
+                <!-- ASCII characters representing image -->
+                <text x="140" y="65" fill="var(--accent)" font-family="Courier, monospace" font-size="10">@ # W $</text>
+                <text x="150" y="85" fill="#fff" font-family="Courier, monospace" font-size="10">? * + ; :</text>
+                <text x="140" y="105" fill="var(--accent)" font-family="Courier, monospace" font-size="10">% i o = ,</text>
+                <text x="160" y="125" fill="#fff" font-family="Courier, monospace" font-size="10">. . . .</text>
+                <path d="M 185 45 A 15 15 0 0 1 215 45" fill="none" stroke="var(--accent)" stroke-width="2" />
+                <circle cx="200" cy="40" r="3" fill="var(--accent)" />
+              </svg>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-type">Python Terminal CLI</span>
+              <div class="project-links">
+                <a href="https://github.com/omyaaa1/ascicam" target="_blank" class="project-link" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+            <h3 class="project-title">ASCII Cam</h3>
+            <p class="project-description">
+              A minimalist Python terminal utility that converts your webcam feed into animated ASCII art patterns in real time. Supports custom parameters for frame rate and render width.
+            </p>
+            <div class="project-tech">
+              <span>Python</span>
+              <span>OpenCV</span>
+              <span>Terminal Graphics</span>
+              <span>CLI</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: pdf_bot -->
+        <article class="project-card glass-card">
+          <div class="glass-card-glow"></div>
+          <div class="project-preview">
+            <div class="project-overlay-glow"></div>
+            <div class="project-mockup pdf-mock">
+              <svg width="100%" height="100%" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" class="svg-graphic">
+                <rect x="150" y="45" width="100" height="110" rx="8" fill="none" stroke="var(--accent)" stroke-width="2" />
+                <line x1="170" y1="75" x2="230" y2="75" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                <line x1="170" y1="95" x2="230" y2="95" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                <line x1="170" y1="115" x2="210" y2="115" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" />
+                <rect x="210" y="110" width="30" height="30" rx="4" fill="var(--accent)" />
+                <path d="M 220 125 L 225 130 L 232 120" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-type">Python Utility</span>
+              <div class="project-links">
+                <a href="https://github.com/omyaaa1/pdf_bot" target="_blank" class="project-link" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+            <h3 class="project-title">pdf_bot</h3>
+            <p class="project-description">
+              A CLI automation tool built with Python to process PDF documents. Supports file merging, text extraction, page splitting, cropping, and security configurations.
+            </p>
+            <div class="project-tech">
+              <span>Python</span>
+              <span>Automation</span>
+              <span>CLI Scripting</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4: printease -->
+        <article class="project-card glass-card">
+          <div class="glass-card-glow"></div>
+          <div class="project-preview">
+            <div class="project-overlay-glow"></div>
+            <div class="project-mockup print-mock">
+              <svg width="100%" height="100%" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" class="svg-graphic">
+                <path d="M 140 120 L 140 80 A 10 10 0 0 1 150 70 L 250 70 A 10 10 0 0 1 260 80 L 260 120" fill="none" stroke="var(--accent)" stroke-width="2" />
+                <rect x="160" y="100" width="80" height="50" rx="4" fill="none" stroke="#fff" stroke-width="2" />
+                <line x1="175" y1="115" x2="225" y2="115" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" />
+                <line x1="175" y1="125" x2="225" y2="125" stroke="var(--accent)" stroke-width="1.5" />
+                <circle cx="170" cy="85" r="3" fill="var(--accent)" />
+              </svg>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-type">Web Interface</span>
+              <div class="project-links">
+                <a href="https://github.com/omyaaa1/printease" target="_blank" class="project-link" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+            <h3 class="project-title">printease</h3>
+            <p class="project-description">
+              A minimalist web design system tailored to remove clutter from browser pages, generating paper-friendly, readable document printouts instantly.
+            </p>
+            <div class="project-tech">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>Web Interface</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 5: ozzsnake -->
+        <article class="project-card glass-card">
+          <div class="glass-card-glow"></div>
+          <div class="project-preview">
+            <div class="project-overlay-glow"></div>
+            <div class="project-mockup snake-mock">
+              <svg width="100%" height="100%" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" class="svg-graphic">
+                <rect x="120" y="40" width="160" height="120" rx="6" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2" />
+                <path d="M 140 120 L 140 90 L 190 90 L 190 60 L 240 60" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="240" cy="60" r="4" fill="#fff" />
+                <rect x="210" y="110" width="8" height="8" rx="1" fill="var(--accent)" />
+              </svg>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-type">Python Arcade</span>
+              <div class="project-links">
+                <a href="https://github.com/omyaaa1/ozzsnake" target="_blank" class="project-link" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+            <h3 class="project-title">ozzsnake</h3>
+            <p class="project-description">
+              A clean Python snake game designed to reinforce coordinate mapping logic, grid collision algorithms, and Pygame mechanics.
+            </p>
+            <div class="project-tech">
+              <span>Python</span>
+              <span>Pygame</span>
+              <span>Algorithm Logic</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 6: ciphertool -->
+        <article class="project-card glass-card">
+          <div class="glass-card-glow"></div>
+          <div class="project-preview">
+            <div class="project-overlay-glow"></div>
+            <div class="project-mockup cipher-mock">
+              <svg width="100%" height="100%" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" class="svg-graphic">
+                <circle cx="200" cy="100" r="60" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="3"/>
+                <path d="M 180 110 L 180 90 A 20 20 0 0 1 220 90 L 220 110" fill="none" stroke="var(--accent)" stroke-width="2.5" />
+                <rect x="170" y="110" width="60" height="40" rx="4" fill="none" stroke="#fff" stroke-width="2" />
+                <circle cx="200" cy="125" r="4" fill="var(--accent)" />
+              </svg>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-type">Web Cryptography</span>
+              <div class="project-links">
+                <a href="https://github.com/omyaaa1/ciphertool" target="_blank" class="project-link" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+            <h3 class="project-title">ciphertool</h3>
+            <p class="project-description">
+              An encryption/decryption web-based application supporting multiple ciphers (Caesar, Vigenère, Rot13) to explore basic cryptography models.
+            </p>
+            <div class="project-tech">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>Web Crypto</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Experience / Learning Journey Section -->
+    <section id="experience" class="experience-section section scroll-reveal">
+      <div class="section-header">
+        <span class="section-subtitle">03. Timeline</span>
+        <h2 class="section-title">My Journey &amp; Milestones</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+        
+        <!-- Timeline Item 1 -->
+        <div class="timeline-item scroll-reveal">
+          <div class="timeline-marker"></div>
+          <div class="timeline-time">2024 - Present</div>
+          <div class="timeline-content glass-card">
+            <div class="glass-card-glow"></div>
+            <h3>B.Tech in Internet of Things (IoT)</h3>
+            <span class="company-name text-accent">SVPCET Nagpur</span>
+            <p class="timeline-desc">
+              Currently in my first year, exploring embedded hardware systems, web development architectures, cybersecurity baselines, and database integrations. Building a foundation in systems-level engineering.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline Item 2 -->
+        <div class="timeline-item scroll-reveal">
+          <div class="timeline-marker"></div>
+          <div class="timeline-time">2023 - Present</div>
+          <div class="timeline-content glass-card">
+            <div class="glass-card-glow"></div>
+            <h3>Video Editor &amp; Content Strategy</h3>
+            <span class="company-name text-accent">Self-Employed / Creator</span>
+            <p class="timeline-desc">
+              Editing engaging video formats using Premiere Pro, After Effects, CapCut, and Alight Motion. Reviewing analytics metrics to optimize viewer retention and digital distribution.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline Item 3 -->
+        <div class="timeline-item scroll-reveal">
+          <div class="timeline-marker"></div>
+          <div class="timeline-time">2022 - 2024</div>
+          <div class="timeline-content glass-card">
+            <div class="glass-card-glow"></div>
+            <h3>Programming Logic &amp; Initial Projects</h3>
+            <span class="company-name text-accent">Self-Guided Study</span>
+            <p class="timeline-desc">
+              Learned fundamentals of Python, C, C++, and scripting languages. Developed several utility tools and games like ozzsnake, ciphertool, and pdf_bot to strengthen logic mapping.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section section scroll-reveal">
+      <div class="section-header">
+        <span class="section-subtitle">04. Reach Out</span>
+        <h2 class="section-title">Get In Touch</h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info-card glass-card">
+          <div class="glass-card-glow"></div>
+          <h3>Let's collaborate!</h3>
+          <p>
+            I'm always open to discussing new opportunities, beginner-friendly open-source projects, video editing collabs, or tech content creation ideas. Reach out and let's build!
+          </p>
+          
+          <div class="contact-details">
+            <div class="contact-detail-item">
+              <i class="fa-regular fa-envelope text-accent"></i>
+              <div>
+                <span>Email</span>
+                <a href="mailto:butemahendra74@gmail.com">butemahendra74@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-detail-item">
+              <i class="fa-solid fa-location-dot text-accent"></i>
+              <div>
+                <span>Location</span>
+                <span class="text-secondary">Nagpur, Maharashtra, India</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-links-container">
+            <a href="https://github.com/omyaaa1" target="_blank" class="social-icon-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <!-- Available via GitHub profile note matches other social networks -->
+            <a href="https://github.com/omyaaa1" target="_blank" class="social-icon-btn" aria-label="Medium"><i class="fa-brands fa-medium"></i></a>
+            <a href="https://github.com/omyaaa1" target="_blank" class="social-icon-btn" aria-label="Quora"><i class="fa-solid fa-q"></i></a>
+          </div>
+        </div>
+
+        <div class="contact-form-card glass-card">
+          <div class="glass-card-glow"></div>
+          <h3>Send a Message</h3>
+          
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" id="form-name" required placeholder=" ">
+                <label for="form-name">Name</label>
+                <div class="input-glow"></div>
+                <span class="error-msg">Please enter your name</span>
+              </div>
+              
+              <div class="form-group">
+                <input type="email" id="form-email" required placeholder=" ">
+                <label for="form-email">Email</label>
+                <div class="input-glow"></div>
+                <span class="error-msg">Please enter a valid email</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input type="text" id="form-subject" placeholder=" ">
+              <label for="form-subject">Subject</label>
+              <div class="input-glow"></div>
+            </div>
+
+            <div class="form-group">
+              <textarea id="form-message" required rows="5" placeholder=" "></textarea>
+              <label for="form-message">Message</label>
+              <div class="input-glow"></div>
+              <span class="error-msg">Please write a message</span>
+            </div>
+
+            <button type="submit" class="btn btn-primary glow-btn" style="width: 100%;">
+              <span>Send Message</span>
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+            
+            <!-- Success Overlay inside the form card -->
+            <div id="form-success-overlay" class="form-success-overlay">
+              <div class="success-message">
+                <div class="success-icon">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <h3>Message Sent Successfully!</h3>
+                <p>Thank you for reaching out. I'll get back to you shortly.</p>
+                <button type="button" id="success-close-btn" class="btn btn-sm btn-outline">Send Another</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p class="copyright">&copy; 2026 Om Bute. All rights reserved.</p>
+      <p class="signature">Crafted with <i class="fa-solid fa-heart text-accent pulse"></i> &amp; vanilla code.</p>
+      <a href="#" class="back-to-top" id="back-to-top" aria-label="Back to Top">
+        <i class="fa-solid fa-arrow-up"></i>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Script File -->
+  <script src="script.js"></script>
+</body>
+</html>
